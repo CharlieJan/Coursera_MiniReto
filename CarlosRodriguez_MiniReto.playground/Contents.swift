@@ -16,34 +16,35 @@ import UIKit
 
 // Variable que será usada para almacenar el resultado.
 var var_result = ""
-// Declarando la variable con una serie de números del 1 al 100.
-var var_serieNumeros = 1...100
+// Declarando la variable con una serie de números del 0 al 100.
+var var_serieNumeros = 0...100
 
 // Iteramos cada uno de los elementos e imprimimos los textos correspondientes según las reglas que se cumplan.
 // NOTA 1: Opté por imprimir # (IMPAR o PAR), BINGO!!!, VIVA SWIFT!!! (Según el caso) en una sóla línea por fines estéticos y evitar que se duplicara el mismo número para el texto.
 // NOTA 2: Noten en la regla 4, usé el operador "~=" (Coincidencia de patrones), ésta me permite usar los rangos dentro del if, si el valor de "item" coincide con el rango, pasa como verdadera. Articulo: http://oleb.net/blog/2015/09/swift-pattern-matching/  Articulo 2: http://en.swifter.tips/pattern-match/
 for item in var_serieNumeros{
+    if item > 0{
+        var_result = String(item)
     
-    var_result = String(item)
+        //Regla 1 : Si el número es divisible entre 5, imprimir "# BINGO!!!"
+        if item%5==0{
+            var_result += " BINGO!!! "
+        }
+        //Regla 2 : Si el número es par, impimir "# PAR"
+        if item%2==0{
+            var_result += " PAR "
+        }
+            //Regla 3 : Si el número es impar, impimir "# IMPAR"
+        else{
+            var_result += " IMPAR "
+        }
+        // Regla 4 : Si se encuentra en un rango del 30 al 40, imprimir: "# VIVA SWIFT!!!"
+        if 30...40 ~= item{
+            var_result += " VIVA SWIFT "
+        }
     
-    //Regla 1 : Si el número es divisible entre 5, imprimir "# BINGO!!!"
-    if item%5==0{
-        var_result += " BINGO!!! "
+        print(var_result)
     }
-    //Regla 2 : Si el número es par, impimir "# PAR"
-    if item%2==0{
-        var_result += " PAR "
-    }
-    //Regla 3 : Si el número es impar, impimir "# IMPAR"
-    else{
-        var_result += " IMPAR "
-    }
-    // Regla 4 : Si se encuentra en un rango del 30 al 40, imprimir: "# VIVA SWIFT!!!"
-    if 30...40 ~= item{
-        var_result += " VIVA SWIFT "
-    }
-    
-    print(var_result)
 }
 
 
